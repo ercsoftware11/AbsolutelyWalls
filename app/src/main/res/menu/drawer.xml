@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_all"
+            android:checked="true"
+            android:icon="@drawable/drawer_all"
+            android:title="@string/nav_all" />
+        <item
+            android:id="@+id/navigation_new"
+            android:icon="@drawable/drawer_new"
+            android:title="@string/nav_new" />
+        <item
+            android:id="@+id/navigation_material"
+            android:icon="@drawable/drawer_material"
+            android:title="@string/nav_material" />
+        <item
+            android:id="@+id/navigation_landscape"
+            android:icon="@drawable/drawer_landscape"
+            android:title="@string/nav_landscapes" />
+
+        <item
+            android:id="@+id/navigation_nature"
+            android:icon="@drawable/drawer_nature"
+            android:title="@string/nav_nature" />
+        <item
+            android:id="@+id/navigation_sea"
+            android:icon="@drawable/drawer_sea"
+            android:title="@string/nav_sea" />
+        <item
+            android:id="@+id/navigation_city"
+            android:icon="@drawable/drawer_city"
+            android:title="@string/nav_cities" />
+        <item
+            android:id="@+id/navigation_vintage"
+            android:icon="@drawable/drawer_vintage"
+            android:title="@string/nav_vintage" />
+    </group>
+    <item
+        android:id="@+id/navigation_subheader"
+        android:title="@string/nav_others">
+        <menu>
+            <item
+                android:id="@+id/navigation_about"
+                android:icon="@drawable/ic_about"
+                android:title="@string/nav_about" />
+        </menu>
+    </item>
+</menu>

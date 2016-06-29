@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="batch-sdk-1.5.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.batch.android/batch-sdk/1.5.3/jars/libs/batch.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.batch.android/batch-sdk/1.5.3/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.batch.android/batch-sdk/1.5.3/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

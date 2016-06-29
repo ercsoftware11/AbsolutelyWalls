@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3949ab</color>
+    <color name="colorPrimaryDark">#303f9f</color>
+    <color name="colorAccent">#00c853</color>
+    <color name="mat_text_light">#ffffffff</color>
+    <color name="textColorPrimary">#fff</color>
+    <color name="textColorSecondary">#fcfbfb</color>
+    <color name="white">#fcfbfb</color>
+    <color name="white_300">#e0e0e0</color>
+</resources>

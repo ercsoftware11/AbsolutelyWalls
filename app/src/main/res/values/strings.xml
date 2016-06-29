@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Absolutely Wallpapers</string>
+
+    <string name="wall_url">http://pastebin.com/raw/kEFXe6AE</string>
+    <string name="wallpaper_downloaded">Wallpaper was downloaded to: %1$s</string>
+    <string name="error">Error</string>
+    <string name="no_conn_title">No connection found</string>
+
+    <string name="md_error_label">@string/error</string>
+    <string name="md_storage_perm_error">You have not granted the \"Read External Storage\" permission to %1$s, which is needed to complete this action.</string>
+    <!--Wallpaper folder path-->
+    <string name="walls_save_location">"/Absolutely Walls/Wallpapers/"</string>
+    <string name="walls_downloading">Downloading</string>
+
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="share">Share Theme</string>
+    <string name="sendemail">Email Developer</string>
+    <string name="changelog">See Changelog</string>
+
+    <string name="nav_all">Anything</string>
+    <string name="nav_new">New</string>
+    <string name="nav_favorites">Favorites</string>
+    <string name="nav_material">Material</string>
+    <string name="nav_landscapes">Landscapes</string>
+    <string name="nav_nature">Nature</string>
+    <string name="nav_sea">Sea</string>
+    <string name="nav_cities">Cities</string>
+    <string name="nav_vintage">Vintage</string>
+    <string name="nav_others">Others</string>
+    <string name="nav_about">About</string>
+    <string name="nav_setting">Setting</string>
+
+</resources>
