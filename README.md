@@ -1,4 +1,14 @@
-# OsumWalls
+# Absolutely Wallpapers
+
+Code originally from https://github.com/viztushar/OsumWalls
+
+<b>Screenshots</b>
+<br/>
+<img src="https://lh3.googleusercontent.com/ZQQTDf8LX_TJhrwmvOh9n1VV5dPzfvZ6JE1ER12T7HsnhmegTNaet4KEK3tN5ZtqNZr1=h900-rw"/>
+<img src="https://lh3.googleusercontent.com/HkD7P7J_uQ4MRDvycgMWpbtj5zMyBf6TP-b2uiJ7o-5byO_APzxoyKsEcjYxc5N2EQc=h900-rw"/>
+
+
+<b>Download on the <a href="https://play.google.com/store/apps/details?id=com.erc.software.absolutelywallpapers">Play Store</a></b>
 
 
 License
