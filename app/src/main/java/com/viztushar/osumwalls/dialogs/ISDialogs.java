@@ -39,7 +39,8 @@ public final class ISDialogs {
         return new MaterialDialog.Builder(context)
                 .title("Changelog")
                 .content("Absolutely Wallpapers 2.0 " +
-                        "<br/>- Removed old walls that weren't loading<br/>- Added tons of new walls")
+                        "\n- Small UI Changes (added a spinner when loading walls from server)\n- New changelog section (as you can see)\n- Fixed a crash issue" +
+                        " on early Android version (4.x)\n- All round awesome improvements ;-)")
                 .show();
     }
 

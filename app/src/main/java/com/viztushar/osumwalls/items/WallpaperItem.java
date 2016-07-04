@@ -1,12 +1,5 @@
 package com.viztushar.osumwalls.items;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.preference.PreferenceManager;
-import android.util.Log;
-
-import com.viztushar.osumwalls.others.Preferences;
-
 /**
  * Created by architjn on 29/07/15.
  */

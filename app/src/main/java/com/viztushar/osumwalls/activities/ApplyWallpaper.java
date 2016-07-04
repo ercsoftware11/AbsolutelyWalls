@@ -20,9 +20,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.util.Log;
@@ -48,7 +46,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.viztushar.osumwalls.R;
 import com.viztushar.osumwalls.dialogs.ISDialogs;
 import com.viztushar.osumwalls.items.WallpaperItem;
-import com.viztushar.osumwalls.others.Preferences;
+import com.viztushar.osumwalls.others.SharedPreferences;
 import com.viztushar.osumwalls.others.Utils;
 
 import java.io.File;
@@ -65,7 +63,7 @@ public class ApplyWallpaper extends AppCompatActivity {
     ImageView imageView;
     ProgressBar mProgress;
     Activity context;
-    Preferences mPrefs;
+    SharedPreferences mPrefs;
     TextView mTextWall;
     LinearLayout wallbg;
     WallpaperItem wallpaperItem;
@@ -82,7 +80,7 @@ public class ApplyWallpaper extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallpaper);
         context = this;
-        mPrefs = new Preferences(this);
+        mPrefs = new SharedPreferences(this);
         saveWallLocation = Environment.getExternalStorageDirectory().getAbsolutePath()
                 + context.getResources().getString(R.string.walls_save_location);
         imageView = (ImageView) findViewById(R.id.walls2);
@@ -95,7 +93,8 @@ public class ApplyWallpaper extends AppCompatActivity {
        fab1.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               finish();
+               //finish();
+               addToFavorites(walls);
            }
        });
         btnSave = (LinearLayout) findViewById(R.id.download);
@@ -114,10 +113,12 @@ public class ApplyWallpaper extends AppCompatActivity {
             }
         });
 
-        final Window w = getWindow();
-        w.setFlags(
-                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
-                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+
+            final Window w = getWindow();
+            w.setFlags(
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
         walls = getIntent().getStringExtra("walls");
         wallname = getIntent().getStringExtra("wallname");
@@ -158,7 +159,9 @@ public class ApplyWallpaper extends AppCompatActivity {
                                 @Override
                                 public void onGenerated(Palette palette) {
                                     setColors(context, palette);
-                                    w.setNavigationBarColor(palette.getLightVibrantColor(Color.DKGRAY));
+                                    if (android.os.Build.VERSION.SDK_INT >= 21) {
+                                        w.setNavigationBarColor(palette.getLightVibrantColor(Color.DKGRAY));
+                                    }
                                 }
                             });
                         }
@@ -375,6 +378,24 @@ public class ApplyWallpaper extends AppCompatActivity {
         }
 
     }
+
+
+
+    //Favourites Attempt
+    private void addToFavorites(String wall) {
+        SharedPreferences sharedPreferences = new SharedPreferences(getApplicationContext());
+        sharedPreferences.saveBoolean(wall.toLowerCase().replaceAll(" ", "_").trim(), !sharedPreferences.getBoolean(wall.toLowerCase().replaceAll(" ", "_").trim(), false));
+        if (sharedPreferences.getBoolean(wall.toLowerCase().replaceAll(" ", "_").trim(), false)) {
+            //item.setIcon(getResources().getDrawable(R.drawable.ic_action_favorite));
+            Toast.makeText(getApplicationContext(), "Wall added to favourites", Toast.LENGTH_SHORT).show();
+        }
+        else {
+           // item.setIcon(getResources().getDrawable(R.drawable.ic_action_favorite_outline));
+            Toast.makeText(getApplicationContext(), "Wall removed from favourites", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 
 
 }

@@ -3,7 +3,9 @@ package com.viztushar.osumwalls.tasks;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.viztushar.osumwalls.MainActivity;
 import com.viztushar.osumwalls.R;
 
 import org.apache.http.HttpResponse;
@@ -14,6 +16,9 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -26,9 +31,13 @@ import java.util.List;
 public class GetWallpapers extends AsyncTask<Void, Void, Void> {
 
     private String url, jsonResult;
+    FileOutputStream outputStream;
+    Context contexxt;
+    boolean newWalls = false;
     private Callbacks callbacks;
     public GetWallpapers(Context context, Callbacks callbacks) {
         this.callbacks = callbacks;
+        contexxt = context;
         url = context.getResources().getString(R.string.wall_url);
     }
 
@@ -44,6 +53,7 @@ public class GetWallpapers extends AsyncTask<Void, Void, Void> {
             jsonResult = inputStreamToString(response.getEntity().getContent())
                     .toString();
             Log.i("response", "doInBackground: "+ jsonResult);
+
         } catch (ClientProtocolException e) {
             Log.e("e", "error1");
             e.printStackTrace();
@@ -51,7 +61,45 @@ public class GetWallpapers extends AsyncTask<Void, Void, Void> {
             Log.e("e", "error2");
             e.printStackTrace();
         }
+        try {
+            if (fileExistance("walls")) {
+                InputStream is = contexxt.openFileInput("walls");
+                String lastWallsFile;
+                lastWallsFile = inputStreamToString(is).toString();
+                Log.e("LastWallsFile:", lastWallsFile);
+                newWalls = !lastWallsFile.equals(jsonResult);
+                writeWallFile();
+            } else {
+                try {
+                    writeWallFile();
+                } catch (Exception e) {
+                    //Do nothing because something is wrong! Oh well this feature just wont work on whatever device.
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            //Do nothing because something is wrong! Oh well this feature just wont work on whatever device.
+        }
+
         return null;
+    }
+    private boolean fileExistance(String fname){
+        File file = contexxt.getFileStreamPath(fname);
+        return file.exists();
+    }
+    private void writeWallFile()
+    {
+        try
+        {
+            outputStream = contexxt.openFileOutput("walls", Context.MODE_PRIVATE);
+            outputStream.write(jsonResult.getBytes());
+            outputStream.close();
+        }
+        catch (Exception ex)
+        {
+            //Do nothing because something is wrong! Oh well this feature just wont work on whatever device.
+        }
     }
 
     private StringBuilder inputStreamToString(InputStream is) {
@@ -72,12 +120,12 @@ public class GetWallpapers extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         if (callbacks != null)
-            callbacks.onListLoaded(jsonResult);
+            callbacks.onListLoaded(jsonResult, newWalls);
         super.onPostExecute(aVoid);
     }
 
     public interface Callbacks {
-        public void onListLoaded(String jsonResult);
+        void onListLoaded(String jsonResult, boolean jsonSwitch);
     }
 
 }

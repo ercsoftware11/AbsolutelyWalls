@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -31,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
     private Context context;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +86,11 @@ public class MainActivity extends AppCompatActivity {
                         switchFragment(fragment1, false);
                         mDrawerLayout.closeDrawers();
                         break;
+                    case R.id.navigation_favourite:
+                        item.setChecked(true);
+                        startFavSection();
+                        mDrawerLayout.closeDrawers();
+                        break;
                     case R.id.navigation_material:
                         item.setChecked(true);
                         HomeFragment fragment3 = new HomeFragment("material");
@@ -136,14 +141,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void switchFragment(Fragment fragment, boolean b) {
-        if (!b)
+        if (!b) {
             getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                     .replace(R.id.fragment_holder, fragment).commit();
-        else
+        }
+        else {
             getSupportFragmentManager().beginTransaction().addToBackStack(null)
                     .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                     .replace(R.id.fragment_holder, fragment).commit();
+        }
     }
     public void startAboutSection(){
         new LibsBuilder()
@@ -156,11 +163,16 @@ public class MainActivity extends AppCompatActivity {
                 .withAboutDescription("An app for <b>Alex Chaves</b><br/><br/>" +
                         "<b>Developers</b><br/>ERC Software, Tushar Parmar and Andrew Quebe<br /><br /><b>Major Authors</b><br/>Odney Joseph<br/>" +
                         "Zan Cerne <br/>Rutwik Patel<br/>Lucas van Osenbruggen<br/>Om Tiwari<br/>Nick Nice<br/><br/>" +
-                        "<b>Changelog</b><br/>Redesigned entire app<br/>Walls are now all server based so new ones can be added every day<br/> ")
+                        "<b>Changelog</b><br/>Small UI Changes (added in a spinner when walls list is loading)<br/>Fixed crash issue on earlier Android devices (4.x)<br/>The app will now tell you " +
+                        "if new walls are available when you open it! ")
                 //start the activity
                 .start(this);
     }
 
+    private void startFavSection() {
+        Intent intent = new Intent (this, FavWallaper.class);
+        startActivity(intent);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -199,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Absolutely Wallpapers BETA");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Absolutely Wallpapers");
         emailIntent.putExtra(Intent.EXTRA_TEXT, "Type the message you would like to send to the devs");
 
         try {

@@ -25,12 +25,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.viztushar.osumwalls.MainActivity;
 import com.viztushar.osumwalls.R;
 import com.viztushar.osumwalls.adapter.WallAdapter;
 import com.viztushar.osumwalls.items.WallpaperItem;
+import com.viztushar.osumwalls.others.Utils;
 import com.viztushar.osumwalls.tasks.GetWallpapers;
 
 import org.json.JSONArray;
@@ -47,7 +49,7 @@ public class HomeFragment extends Fragment implements GetWallpapers.Callbacks {
     private RecyclerView recyclerView;
     private ArrayList<WallpaperItem> items;
     private DrawerLayout drawer;
-
+    private ProgressBar mainProgress;
 
     public HomeFragment() {
 
@@ -67,6 +69,8 @@ public class HomeFragment extends Fragment implements GetWallpapers.Callbacks {
                              @Nullable Bundle savedInstanceState) {
         mainView = inflater.inflate(R.layout.wall_fragment, container, false);
         context = mainView.getContext();
+        mainProgress = (ProgressBar) mainView.findViewById(R.id.mainProgress);
+        mainProgress.setVisibility(View.VISIBLE);
         init();
 
         items = new ArrayList<>();
@@ -83,7 +87,7 @@ public class HomeFragment extends Fragment implements GetWallpapers.Callbacks {
         if (Build.VERSION.SDK_INT >= 21) {
             ActivityManager.TaskDescription taskDescription = new
                     ActivityManager.TaskDescription(getResources().getString(R.string.app_name),
-                    BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher_aw),
+                    BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher_v2),
                     getResources().getColor(R.color.colorPrimary));
             getActivity().setTaskDescription(taskDescription);
         }
@@ -175,7 +179,7 @@ public class HomeFragment extends Fragment implements GetWallpapers.Callbacks {
     }
 
     @Override
-    public void onListLoaded(String jsonResult) {
+    public void onListLoaded(String jsonResult, boolean newWalls) {
         try {
             if (jsonResult != null) {
                 try {
@@ -203,6 +207,12 @@ public class HomeFragment extends Fragment implements GetWallpapers.Callbacks {
         float density  = getResources().getDisplayMetrics().density;
         float dpWidth  = outMetrics.widthPixels / density;
         int columns = Math.round(dpWidth/200);*/
+        if(newWalls && !Utils.newWallsShown)
+        {
+           Toast.makeText(getActivity(), "New walls available!", Toast.LENGTH_LONG).show();
+            Utils.newWallsShown = true;
+        }
+        mainProgress.setVisibility(View.GONE);
         recyclerView = (RecyclerView) mainView.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager;
