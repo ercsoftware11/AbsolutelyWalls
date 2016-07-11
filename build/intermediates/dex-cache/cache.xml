@@ -3,246 +3,246 @@
 
     <item
         is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_bb841a35cee991bf44b6a2cddf73300bcffe6190\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.mikepenz\iconics-core\2.6.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="e5a96d555777552701e4dbd0d0c40c2436cb6f1c">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-iconics-core-2.6.0_19337c23577d16d91a89dbbcb99bbd73c21bed61\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.mikepenz\fastadapter\1.5.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="ab56b2bdb734c6442014eb30048d54221ba3698b">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-fastadapter-1.5.2_12a93621b68513b20bd6eef9dfcc2293fafd51fc\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.batch.android\batch-sdk\1.5.3\jars\libs\batch.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="1429cb79231de1d533ec1c9e0c801e89c8133fc1">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\batch_ee614dcddcd9c47b62f98d938146cb953b6ffa54\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\canno-em12w\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\gifdecoder\1.0.0-SNAPSHOT\32cd7e214121898f8bc2c252be4ef7f374f6a0d4\gifdecoder-1.0.0-SNAPSHOT.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="32cd7e214121898f8bc2c252be4ef7f374f6a0d4">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\gifdecoder-1.0.0-SNAPSHOT_61b1bf4e6cc21b5f60eb1a34f2571a74e56cdedb\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_cff4de36cfde3da53db21ceafb1a9130e93b5fb6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\palette-v7\23.3.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="d41792854b7fb173e61c2bfea5044fd47df76114">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-23.3.0_f28579c71defa28c274e451f83d918c07b09e8b0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.4.0_9e0e6707008bf33beed6ebdeb57d82767e6bf33d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\canno-em12w\.gradle\caches\modules-2\files-2.1\com.readystatesoftware.systembartint\systembartint\1.0.3\de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287\systembartint-1.0.3.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="de4f7404e2f58d8f6e83cb1e85d0c2d6c2987287">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\systembartint-1.0.3_72129d3671766983d1870b6b85d4aa204fa0d7ca\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.github.clans\fab\1.6.3\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="8f65e6101c990702ad4178f592291354eb0cf2c7">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.clans-fab-1.6.3_cf8ba0b01e77d1ae3503787c31118ef30478c5af\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.mikepenz\aboutlibraries\5.6.7\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="afa0c1e10929b6b5355d614568e78ec68c658cc5">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-aboutlibraries-5.6.7_17ee5504abb339d9d7c187ecebec954aaa628b23\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.batch.android\batch-sdk\1.5.3\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="e36e6582217bb22ae37cb7fca1c18e8b82a72cb4">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.batch.android-batch-sdk-1.5.3_fc95d0de090594fdb0746371a19d80ecd894e8aa\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.3"
         sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_0fae818890794120bfe15019f1eeba6d45879ff4\classes.dex" />
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_d0448d8d21a6d8ea1743805fac9b6ee9782ef454\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.volley-volley-1.0.0_fd847ea42e51fb960d81a153b337979b0ae67407\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.4.0_cd679b03c99f7477b5775e7f412094b6ff7308c7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="87fa4b373f330568894188160fd56f1ac7f755b7">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_ae9736efdf4d0b52de2df7da63c02dd763949b2e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\canno-em12w\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_f036886e3dac280a25f39a3a16f8824731a04fdd\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.github.afollestad.material-dialogs\core\0.8.5.8\jars\classes.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="4f7e1ce5942093c77105c86ef11b782f75aff0c3">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.afollestad.material-dialogs-core-0.8.5.8_c21e9a040da3a27c8d43f04ec38995cef270be9c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\canno-em12w\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\disklrucache\1.0.0-SNAPSHOT\298b61a73531e096abd7108acc7ac777d9d3dbc8\disklrucache-1.0.0-SNAPSHOT.jar"
-        jumboMode="true"
-        optimize="false"
-        revision="23.0.3"
-        sha1="298b61a73531e096abd7108acc7ac777d9d3dbc8">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\disklrucache-1.0.0-SNAPSHOT_ebf9832c18f175e0151d87fc7fca882010ebd427\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\canno-em12w\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\4.0.0-SNAPSHOT\f53b223afade9fdd99e9317618961c9fce86f441\glide-4.0.0-SNAPSHOT.jar"
+        jar="C:\Users\Test\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\4.0.0-SNAPSHOT\f53b223afade9fdd99e9317618961c9fce86f441\glide-4.0.0-SNAPSHOT.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.3"
         sha1="f53b223afade9fdd99e9317618961c9fce86f441">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-4.0.0-SNAPSHOT_cac416475f1832c5000a4ff04d72475b985b555a\classes.dex" />
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-4.0.0-SNAPSHOT_3b1d5f4bec37b5c69c62d21dd5f8a8a638687e15\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.github.florent37\glidepalette\2.0.0\jars\classes.jar"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.3"
-        sha1="a00e73f449e078d6aac4860677abbd89f6aa3178">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.florent37-glidepalette-2.0.0_6bad750fdb2a40dbd43f9b0cb4c6438a5fde84e3\classes.dex" />
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_9293279d2fd4dace28158deb4ea32be96a840178\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.mikepenz\materialize\0.9.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.3"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_6637224d54b7215791f9756d72dc95f541d01639\classes.dex" />
+        sha1="0fe984aa10a4992e6762658da3fc87195c2330ca">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-materialize-0.9.0_1ca75f1daa5a237cd8e7425944cac405e4bd0e4e\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.3"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_d892bec05e8e0dca6551bacdd58070c5405332bd\classes.dex" />
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.4.0_a53a307d30b70c965ff45403ccd14cae4b55e916\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.github.afollestad.material-dialogs\core\0.8.5.8\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="4f7e1ce5942093c77105c86ef11b782f75aff0c3">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.afollestad.material-dialogs-core-0.8.5.8_76a2281fe9f8815673bd7eb6c8300f6ef138dd71\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.3"
         sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_96a50ef39db659cd74f1e368e9042d10c09c9f4a\classes.dex" />
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_ee692985e0073f81096d9bdf8eeadf9374543a9c\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\exploded-aar\me.zhanghai.android.materialprogressbar\library\1.1.5\jars\classes.jar"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.mikepenz\fastadapter\1.5.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="ab56b2bdb734c6442014eb30048d54221ba3698b">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-fastadapter-1.5.2_12a6bfff661d27a207c32d4c9f0c59e407d62824\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_1946a48ac44ea9ccb3a05b42988489ad944690de\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.github.clans\fab\1.6.3\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="8f65e6101c990702ad4178f592291354eb0cf2c7">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.clans-fab-1.6.3_95326645fff30c195d26fc1412278e73e8769bab\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_995e154355fa7d26b9d1abc42f67cc059880217e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.batch.android\batch-sdk\1.5.3\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="e36e6582217bb22ae37cb7fca1c18e8b82a72cb4">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.batch.android-batch-sdk-1.5.3_5c39ca87c71a154c62e5e0db6bacf61636dbda8e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\me.zhanghai.android.materialprogressbar\library\1.1.5\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.3"
         sha1="4a9f97c742d058ca55948643c06f447895a9af76">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\me.zhanghai.android.materialprogressbar-library-1.1.5_810a25e7010b7dfb4ceed1929ea338f22144467f\classes.dex" />
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\me.zhanghai.android.materialprogressbar-library-1.1.5_3ab234fbe1b5077ef888d3bd798443741918cc52\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\canno-em12w\.gradle\caches\modules-2\files-2.1\org.jbundle.util.osgi.wrapped\org.jbundle.util.osgi.wrapped.org.apache.http.client\4.1.2\98c86e42679fe7ac066f6c242e0d14f0bce0bb7c\org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2.jar"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.4.0_4026e7a2e63eef414807cf9543e0fc53a2b6552d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_efe185d1d48e68c4c80f590498a5c454c2e13a23\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="a82496384c8e30a0c33b71456de3da99dd1d59cb">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_5a744f9ffbc8ac53c1cb09a1f21d9774f5acc4a8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Test\.gradle\caches\modules-2\files-2.1\org.jbundle.util.osgi.wrapped\org.jbundle.util.osgi.wrapped.org.apache.http.client\4.1.2\98c86e42679fe7ac066f6c242e0d14f0bce0bb7c\org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.3"
         sha1="98c86e42679fe7ac066f6c242e0d14f0bce0bb7c">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2_0868a6ed120e65dd2d9b0f84524a637dad2d61b2\classes.dex" />
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\org.jbundle.util.osgi.wrapped.org.apache.http.client-4.1.2_e28d927e16a432cec9ca7355ca78a6a127cecef6\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.support\palette-v7\23.3.0\jars\classes.jar"
         jumboMode="true"
         optimize="false"
         revision="23.0.3"
-        sha1="a98b96acd277c0f78d1411ec567feca8c94503a9">
-        <dex dex="C:\Android\2 - Osum Walls Versions\2\OsumWalls-master\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_f80c1099d8057833309a42037ecd1ee6919c1077\classes.dex" />
+        sha1="d41792854b7fb173e61c2bfea5044fd47df76114">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-23.3.0_6aafb3609212705bd3cd5758ee4206f493ed2ed9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Test\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\gifdecoder\1.0.0-SNAPSHOT\32cd7e214121898f8bc2c252be4ef7f374f6a0d4\gifdecoder-1.0.0-SNAPSHOT.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="32cd7e214121898f8bc2c252be4ef7f374f6a0d4">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\gifdecoder-1.0.0-SNAPSHOT_9a5aefe71cf538457f5c15b0065698854da61d5e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Test\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_b01727418e32549567773a633db04450cf4d09c4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.github.florent37\glidepalette\2.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="a00e73f449e078d6aac4860677abbd89f6aa3178">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.florent37-glidepalette-2.0.0_545a3506ed1f9ffb048cf20270acf5e2a1234b5e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.mikepenz\aboutlibraries\5.6.7\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="afa0c1e10929b6b5355d614568e78ec68c658cc5">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-aboutlibraries-5.6.7_29eaa25d6c1ffa2b2ccbb630bb40c7bebb8c827b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="9db4b59135ba587c3dde7972e4566bf1ccf4e154">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_9e9dc777310e0ce65b8d1a6d390df685e8ea0f07\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.mikepenz\iconics-core\2.6.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="e5a96d555777552701e4dbd0d0c40c2436cb6f1c">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-iconics-core-2.6.0_7ffcea120a6f48fe31a484917f87a6ac390f4458\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Test\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\disklrucache\1.0.0-SNAPSHOT\298b61a73531e096abd7108acc7ac777d9d3dbc8\disklrucache-1.0.0-SNAPSHOT.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="298b61a73531e096abd7108acc7ac777d9d3dbc8">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\disklrucache-1.0.0-SNAPSHOT_5ae7e0cd9fdb13785bd0b016d407b738dff69aba\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.batch.android\batch-sdk\1.5.3\jars\libs\batch.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="1429cb79231de1d533ec1c9e0c801e89c8133fc1">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\batch_9ea31e8f75f912411f545e9dabf7cb5870994540\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="C:\Android Studio\AbsolutelyWalls\OsumWalls-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.volley-volley-1.0.0_f8ef8732f469ea40391e55971cad391b053f100e\classes.dex" />
     </item>
 
 </items>

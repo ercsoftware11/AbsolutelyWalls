@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.viztushar.osumwalls.MainActivity;
 import com.viztushar.osumwalls.R;
+import com.viztushar.osumwalls.others.Utils;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -56,10 +57,12 @@ public class GetWallpapers extends AsyncTask<Void, Void, Void> {
 
         } catch (ClientProtocolException e) {
             Log.e("e", "error1");
+            Utils.noConnection = true;
             e.printStackTrace();
         } catch (IOException e) {
             Log.e("e", "error2");
             e.printStackTrace();
+            Utils.noConnection = true;
         }
         try {
             if (fileExistance("walls")) {

@@ -13,6 +13,30 @@
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_centerInParent="true"
         android:indeterminate="true"/>
+   <!-- <ImageView
+        android:id="@+id/noConnectionImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:src="@drawable/ic_noconnection"
+        android:visibility="gone"
+        android:contentDescription="No Connection Image" />-->
+    <TextView
+        android:id="@+id/noConnectionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:layout_below="@+id/noConnectionImage"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="italic"
+        android:singleLine="true"
+        android:visibility="gone"
+        android:textColor="#212121"
+        android:text="No Connection :-(" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -43,6 +43,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
+import com.mikepenz.materialize.MaterializeBuilder;
 import com.viztushar.osumwalls.R;
 import com.viztushar.osumwalls.dialogs.ISDialogs;
 import com.viztushar.osumwalls.items.WallpaperItem;
@@ -77,10 +78,12 @@ public class ApplyWallpaper extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallpaper);
         context = this;
         mPrefs = new SharedPreferences(this);
+
         saveWallLocation = Environment.getExternalStorageDirectory().getAbsolutePath()
                 + context.getResources().getString(R.string.walls_save_location);
         imageView = (ImageView) findViewById(R.id.walls2);
@@ -93,8 +96,8 @@ public class ApplyWallpaper extends AppCompatActivity {
        fab1.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               //finish();
-               addToFavorites(walls);
+               finish();
+              // addToFavorites(walls);
            }
        });
         btnSave = (LinearLayout) findViewById(R.id.download);
@@ -114,11 +117,15 @@ public class ApplyWallpaper extends AppCompatActivity {
         });
 
 
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            /*Window w = getWindow(); // in Activity's onCreate() for instance
+            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);*/
             final Window w = getWindow();
             w.setFlags(
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
+
 
         walls = getIntent().getStringExtra("walls");
         wallname = getIntent().getStringExtra("wallname");
@@ -160,7 +167,7 @@ public class ApplyWallpaper extends AppCompatActivity {
                                 public void onGenerated(Palette palette) {
                                     setColors(context, palette);
                                     if (android.os.Build.VERSION.SDK_INT >= 21) {
-                                        w.setNavigationBarColor(palette.getLightVibrantColor(Color.DKGRAY));
+                                        //w.setNavigationBarColor(palette.getLightVibrantColor(Color.DKGRAY));
                                     }
                                 }
                             });
@@ -168,7 +175,7 @@ public class ApplyWallpaper extends AppCompatActivity {
                     }
                 });
 
-
+        new MaterializeBuilder().withActivity(this).withFullscreen(false).withTransparentStatusBar(true).withTintedStatusBar(false).build();
     }
 
     @TargetApi(Build.VERSION_CODES.M)

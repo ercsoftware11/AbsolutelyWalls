@@ -7,6 +7,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import com.viztushar.osumwalls.R;
 import com.viztushar.osumwalls.adapter.WallAdapter;
@@ -35,6 +36,7 @@ public class FavWallaper extends AppCompatActivity implements GetWallpapers.Call
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppTheme);
         setContentView(R.layout.fav_wall);
         mPre = new SharedPreferences(this);
         toolbar = (Toolbar) findViewById(R.id.fav_toolbar);
@@ -62,7 +64,9 @@ public class FavWallaper extends AppCompatActivity implements GetWallpapers.Call
                                     jsonChildNode.optString("author"),
                                     jsonChildNode.optString("url"),
                                     jsonChildNode.optString("thumb")));
+                            Log.e("Favourite: ", items.toString());
                         }
+
 
                     }
                 } catch (JSONException e) {

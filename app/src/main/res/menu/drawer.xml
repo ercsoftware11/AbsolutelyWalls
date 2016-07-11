@@ -10,10 +10,10 @@
             android:id="@+id/navigation_new"
             android:icon="@drawable/drawer_new"
             android:title="@string/nav_new" />
-        <item
+      <!--  <item
             android:id="@+id/navigation_favourite"
             android:icon="@drawable/drawer_all"
-            android:title="Favourites" />
+            android:title="Favourites" />-->
         <item
             android:id="@+id/navigation_material"
             android:icon="@drawable/drawer_material"

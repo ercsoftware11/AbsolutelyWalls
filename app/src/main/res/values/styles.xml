@@ -11,6 +11,29 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+
+    <!--Dark Theme-->
+    <style name="AppTheme.Dark" parent="Theme.AppCompat">
+        <!-- Dark theme base colours -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.Dark.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.Dark.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.Dark.PopupOverlay" parent="ThemeOverlay.AppCompat" />
+
+
+
+
     <style name="AppTheme.Launcher">
         <item name="android:windowBackground">@drawable/launcher</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

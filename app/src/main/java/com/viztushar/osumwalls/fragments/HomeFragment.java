@@ -25,7 +25,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.viztushar.osumwalls.MainActivity;
@@ -38,6 +40,7 @@ import com.viztushar.osumwalls.tasks.GetWallpapers;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -87,7 +90,7 @@ public class HomeFragment extends Fragment implements GetWallpapers.Callbacks {
         if (Build.VERSION.SDK_INT >= 21) {
             ActivityManager.TaskDescription taskDescription = new
                     ActivityManager.TaskDescription(getResources().getString(R.string.app_name),
-                    BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher_v2),
+                    BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher_aw),
                     getResources().getColor(R.color.colorPrimary));
             getActivity().setTaskDescription(taskDescription);
         }
@@ -207,11 +210,30 @@ public class HomeFragment extends Fragment implements GetWallpapers.Callbacks {
         float density  = getResources().getDisplayMetrics().density;
         float dpWidth  = outMetrics.widthPixels / density;
         int columns = Math.round(dpWidth/200);*/
-        if(newWalls && !Utils.newWallsShown)
+        if(!Utils.noConnection)
         {
-           Toast.makeText(getActivity(), "New walls available!", Toast.LENGTH_LONG).show();
-            Utils.newWallsShown = true;
+            if(newWalls && !Utils.newWallsShown)
+            {
+                Toast.makeText(getActivity(), "New walls available!", Toast.LENGTH_LONG).show();
+                Utils.newWallsShown = true;
+            }
         }
+        else
+        {
+            Toast.makeText(getContext(), "No Connection", Toast.LENGTH_LONG).show();
+            //ImageView noConnectionImg = (ImageView) mainView.findViewById(R.id.noConnectionImage);
+            TextView noConnectionTxt = (TextView) mainView.findViewById(R.id.noConnectionText);
+            if(Utils.darkTheme)
+            {
+               // noConnectionImg.setBackgroundColor(getResources().getColor(R.color.white));
+               // noConnectionImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_noconnection_white));
+                noConnectionTxt.setTextColor(getResources().getColor(R.color.white));
+            }
+           // noConnectionImg.setVisibility(View.VISIBLE);
+            noConnectionTxt.setVisibility(View.VISIBLE);
+
+        }
+
         mainProgress.setVisibility(View.GONE);
         recyclerView = (RecyclerView) mainView.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);

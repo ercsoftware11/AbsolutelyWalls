@@ -31,6 +31,7 @@ import com.bumptech.glide.request.target.Target;
 import com.viztushar.osumwalls.R;
 import com.viztushar.osumwalls.activities.ApplyWallpaper;
 import com.viztushar.osumwalls.items.WallpaperItem;
+import com.viztushar.osumwalls.others.Utils;
 import com.viztushar.osumwalls.tasks.ColorGridTask;
 
 import java.util.List;
@@ -83,6 +84,7 @@ public class WallAdapter extends RecyclerView.Adapter<WallAdapter.MyViewHolder> 
         WallpaperItem image = images.get(position);
         holder.name.setText(images.get(position).getName());
         holder.author.setText(images.get(position).getAuthor());
+        if(Utils.darkTheme) holder.realBackground.setBackgroundColor(mContext.getResources().getColor(android.R.color.darker_gray));
         Glide.with(mContext)
                 .asBitmap()
                 .listener(new RequestListener<Bitmap>() {

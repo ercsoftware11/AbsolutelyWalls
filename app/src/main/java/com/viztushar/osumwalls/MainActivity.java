@@ -2,6 +2,7 @@ package com.viztushar.osumwalls;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -15,31 +16,46 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.batch.android.Batch;
-import com.mikepenz.aboutlibraries.Libs;
-import com.mikepenz.aboutlibraries.LibsBuilder;
+import com.bumptech.glide.util.Util;
+import com.viztushar.osumwalls.activities.AboutAppActivity;
 import com.viztushar.osumwalls.activities.FavWallaper;
-import com.viztushar.osumwalls.dialogs.ISDialogs;
 import com.viztushar.osumwalls.fragments.HomeFragment;
+import com.viztushar.osumwalls.others.SharedPreferences;
+import com.viztushar.osumwalls.others.Utils;
 
 public class MainActivity extends AppCompatActivity {
 
     private NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
     private Context context;
+    private static final String PREFS_NAME = "prefs";
+    private static final String PREF_DARK_THEME = "dark_theme";
+
+    //SharedPreferences sharedPreferences = new SharedPreferences(getApplicationContext());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
+        android.content.SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        boolean useDarkTheme = preferences.getBoolean(PREF_DARK_THEME, false);
+        Utils.darkTheme = useDarkTheme;
+        if(useDarkTheme) {
+            setTheme(R.style.AppTheme_Dark_NoActionBar);
+        }
+        else
+        {
+            setTheme(R.style.AppTheme);
+        }
+
+        //setTheme(R.style.AppTheme_Dark_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = this;
         switchFragment(new HomeFragment("walls"),false);
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.main_drawerlayout);
         navigationView = (NavigationView) findViewById(R.id.main_navigationview);
     }
@@ -86,11 +102,11 @@ public class MainActivity extends AppCompatActivity {
                         switchFragment(fragment1, false);
                         mDrawerLayout.closeDrawers();
                         break;
-                    case R.id.navigation_favourite:
+                  /*  case R.id.navigation_favourite:
                         item.setChecked(true);
                         startFavSection();
                         mDrawerLayout.closeDrawers();
-                        break;
+                        break;*/
                     case R.id.navigation_material:
                         item.setChecked(true);
                         HomeFragment fragment3 = new HomeFragment("material");
@@ -153,21 +169,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void startAboutSection(){
-        new LibsBuilder()
-                //provide a style (optional) (LIGHT, DARK, LIGHT_DARK_TOOLBAR)
-                .withActivityStyle(Libs.ActivityStyle.LIGHT_DARK_TOOLBAR)
-                .withActivityTitle("About")
-                .withAboutIconShown(true)
-                .withAboutVersionShown(true)
-                .withAboutAppName("Absolutely Wallpapers")
-                .withAboutDescription("An app for <b>Alex Chaves</b><br/><br/>" +
-                        "<b>Developers</b><br/>ERC Software, Tushar Parmar and Andrew Quebe<br /><br /><b>Major Authors</b><br/>Odney Joseph<br/>" +
-                        "Zan Cerne <br/>Rutwik Patel<br/>Lucas van Osenbruggen<br/>Om Tiwari<br/>Nick Nice<br/><br/>" +
-                        "<b>Changelog</b><br/>Small UI Changes (added in a spinner when walls list is loading)<br/>Fixed crash issue on earlier Android devices (4.x)<br/>The app will now tell you " +
-                        "if new walls are available when you open it! ")
-                //start the activity
-                .start(this);
+        Intent intent = new Intent(this, AboutAppActivity.class);
+        startActivity(intent);
     }
+
 
     private void startFavSection() {
         Intent intent = new Intent (this, FavWallaper.class);
@@ -177,6 +182,16 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        if(Utils.darkTheme) menu.findItem(R.id.action_darktheme).setChecked(true);
+        else menu.findItem(R.id.action_darktheme).setChecked(false);
+
         return true;
     }
 
@@ -189,16 +204,49 @@ public class MainActivity extends AppCompatActivity {
                 sendEmail();
                 break;
             case R.id.action_changelog:
-                startAboutSection();
+                //startAboutSection();
+                new MaterialDialog.Builder(context)
+                        .title("Absolutely Wallpapers " + getAppVersion())
+                        .content("New\n \n- All new about section\n- Dark Theme (apply using three dots menu)\n- No connection message if you don't have an internet connection\n- New changelog section (as you can see)\n" +
+                                "\nImproved\n \n- All round awesome improvements! \n \n \n If you like the app be sure to leave a rating and/or review! They are very much appreciated ")
+                        .positiveText(android.R.string.ok)
+                        .show();
+                break;
+            case R.id.action_darktheme:
+                if (item.isChecked())
+                {
+                    item.setChecked(false);
+                    toggleTheme(false);
+                }
+                else
+                {
+                    item.setChecked(true);
+                    toggleTheme(true);
+                    //sharedPreferences.saveBoolean("dark_theme", true);
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void showChangelog()
-    {
-        final MaterialDialog downloadDialog = ISDialogs.showChangelogDialog(this);
-        downloadDialog.show();
+    public String getAppVersion() {
+        String versionCode = "1.0";
+        try {
+            versionCode = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return versionCode;
+    }
+
+    private void toggleTheme(boolean darkTheme) {
+        android.content.SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
+        editor.putBoolean(PREF_DARK_THEME, darkTheme);
+        editor.apply();
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 
     protected void sendEmail() {
