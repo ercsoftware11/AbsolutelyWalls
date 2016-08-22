@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/relateview"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="false">
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <ImageView
+        android:id="@+id/walls2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionName="wallpaper"
+        android:src="@mipmap/ic_launcher"/>
+
+
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/menu_labels_right"
+        fab:menu_fab_size="normal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:paddingRight="15dp"
+        android:paddingBottom="60dp"
+        android:paddingLeft="15dp"
+        fab:menu_labels_ellipsize="end"
+        fab:menu_labels_singleLine="true"
+        fab:menu_labels_position="left"
+        fab:menu_labels_colorNormal="#00000000"
+        fab:menu_labels_textColor="#fff"
+        fab:menu_labels_showShadow="false">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/quick_spply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_done_all_black_24dp"
+            fab:fab_size="mini"
+            android:tint="@android:color/white"
+            fab:fab_label="Quick Apply" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_file_download_black_24dp"
+            fab:fab_size="mini"
+            fab:fab_label="Save" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+    </FrameLayout>

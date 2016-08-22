@@ -1,0 +1,9 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="wall_grid_view_height">200dp</dimen>
+
+    <dimen name="small_padding">8.0dip</dimen>
+    <dimen name="mat_text_subhead">16.0sp</dimen>
+</resources>
