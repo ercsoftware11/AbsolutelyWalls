@@ -15,7 +15,7 @@ android {
     }
     signingConfigs {
         release {
-            //storeFile file("C://Users//canno-em12w//School//1 - Other Documents//1 - Key Store//build_key.jks")
+            storeFile file("C://Users//canno-em12w//School//1 - Other Documents//1 - Key Store//build_key.jks")
             storePassword "buildkey"
             keyAlias "build"
             keyPassword "buildkey"
