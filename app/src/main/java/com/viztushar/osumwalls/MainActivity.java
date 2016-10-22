@@ -4,13 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -20,11 +20,9 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.batch.android.Batch;
-import com.bumptech.glide.util.Util;
 import com.viztushar.osumwalls.activities.AboutAppActivity;
 import com.viztushar.osumwalls.activities.FavWallaper;
 import com.viztushar.osumwalls.fragments.HomeFragment;
-import com.viztushar.osumwalls.others.SharedPreferences;
 import com.viztushar.osumwalls.others.Utils;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,11 +40,9 @@ public class MainActivity extends AppCompatActivity {
         android.content.SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         boolean useDarkTheme = preferences.getBoolean(PREF_DARK_THEME, false);
         Utils.darkTheme = useDarkTheme;
-        if(useDarkTheme) {
+        if (useDarkTheme) {
             setTheme(R.style.AppTheme_Dark_NoActionBar);
-        }
-        else
-        {
+        } else {
             setTheme(R.style.AppTheme);
         }
 
@@ -54,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = this;
-        switchFragment(new HomeFragment("walls"),false);
+        switchFragment(new HomeFragment("walls"), false);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.main_drawerlayout);
         navigationView = (NavigationView) findViewById(R.id.main_navigationview);
@@ -153,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        }
+    }
 
 
     public void switchFragment(Fragment fragment, boolean b) {
@@ -161,23 +157,24 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                     .replace(R.id.fragment_holder, fragment).commit();
-        }
-        else {
+        } else {
             getSupportFragmentManager().beginTransaction().addToBackStack(null)
                     .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                     .replace(R.id.fragment_holder, fragment).commit();
         }
     }
-    public void startAboutSection(){
+
+    public void startAboutSection() {
         Intent intent = new Intent(this, AboutAppActivity.class);
         startActivity(intent);
     }
 
 
     private void startFavSection() {
-        Intent intent = new Intent (this, FavWallaper.class);
+        Intent intent = new Intent(this, FavWallaper.class);
         startActivity(intent);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -189,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if(Utils.darkTheme) menu.findItem(R.id.action_darktheme).setChecked(true);
+        if (Utils.darkTheme) menu.findItem(R.id.action_darktheme).setChecked(true);
         else menu.findItem(R.id.action_darktheme).setChecked(false);
 
         return true;
@@ -213,13 +210,10 @@ public class MainActivity extends AppCompatActivity {
                         .show();
                 break;
             case R.id.action_darktheme:
-                if (item.isChecked())
-                {
+                if (item.isChecked()) {
                     item.setChecked(false);
                     toggleTheme(false);
-                }
-                else
-                {
+                } else {
                     item.setChecked(true);
                     toggleTheme(true);
                     //sharedPreferences.saveBoolean("dark_theme", true);
@@ -271,31 +265,28 @@ public class MainActivity extends AppCompatActivity {
                     "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
     }
-    protected void onStart()
-    {
+
+    protected void onStart() {
         super.onStart();
         Batch.onStart(this);
     }
 
     @Override
-    protected void onStop()
-    {
+    protected void onStop() {
         Batch.onStop(this);
 
         super.onStop();
     }
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         Batch.onDestroy(this);
 
         super.onDestroy();
     }
 
     @Override
-    protected void onNewIntent(Intent intent)
-    {
+    protected void onNewIntent(Intent intent) {
         Batch.onNewIntent(this, intent);
 
         super.onNewIntent(intent);

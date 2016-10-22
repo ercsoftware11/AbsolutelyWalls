@@ -11,7 +11,6 @@ import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
@@ -35,20 +34,17 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.target.Target;
-import com.bumptech.glide.request.transition.Transition;
 import com.mikepenz.materialize.MaterializeBuilder;
 import com.viztushar.osumwalls.R;
 import com.viztushar.osumwalls.dialogs.ISDialogs;
 import com.viztushar.osumwalls.items.WallpaperItem;
 import com.viztushar.osumwalls.others.SharedPreferences;
 import com.viztushar.osumwalls.others.Utils;
+import com.viztushar.osumwalls.utils.StaticUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -59,7 +55,9 @@ import java.io.FileOutputStream;
  */
 public class ApplyWallpaper extends AppCompatActivity {
 
-    public String walls, saveWallLocation, wallname;
+    public static final String EXTRA_WALLPAPER = "wallpaperItem";
+
+    public String saveWallLocation;
     public Window w = getWindow();
     ImageView imageView;
     ProgressBar mProgress;
@@ -78,9 +76,9 @@ public class ApplyWallpaper extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallpaper);
+
         context = this;
         mPrefs = new SharedPreferences(this);
 
@@ -93,13 +91,13 @@ public class ApplyWallpaper extends AppCompatActivity {
         wallbg = (LinearLayout) findViewById(R.id.wallbg);
         fab1 = (FloatingActionButton) findViewById(R.id.fav_fab);
 //        if(wallpaperItem.favorite) fab1.setImageResource(R.drawable.ic_favorite_border);
-       fab1.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               finish();
-              // addToFavorites(walls);
-           }
-       });
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                // addToFavorites(walls);
+            }
+        });
         btnSave = (LinearLayout) findViewById(R.id.download);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,52 +124,30 @@ public class ApplyWallpaper extends AppCompatActivity {
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
 
+        wallpaperItem = getIntent().getParcelableExtra(EXTRA_WALLPAPER);
 
-        walls = getIntent().getStringExtra("walls");
-        wallname = getIntent().getStringExtra("wallname");
-        Log.d("tag", "onCreate() returned: " + walls);
-        mTextWall.setText(wallname);
+        Log.d("tag", "onCreate() returned: " + wallpaperItem.getUrl());
+        mTextWall.setText(wallpaperItem.getName());
         getPermissions();
-        if (walls != null) {
-            Glide.with(this)
-                    .load(walls)
-                    .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL).centerCrop(this))
-                    .listener(new RequestListener<Drawable>() {
-                        @Override
-                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                            mProgress.setVisibility(View.GONE);
-                            return false;
-                        }
-
-                        @Override
-                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                            mProgress.setVisibility(View.GONE);
-                            return false;
-                        }
-                    })
-                    .thumbnail(0.5f)
-                    .into(imageView);
-        }
 
         Glide.with(this)
-                .asBitmap()
-                .load(walls)
-                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL))
-                .into(new SimpleTarget<Bitmap>() {
+                .load(wallpaperItem.getUrl())
+                .thumbnail(0.2f)
+                .into(new GlideDrawableImageViewTarget(imageView) {
                     @Override
-                    public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
-                        if (resource != null) {
-                            Palette.from(resource).generate(new Palette.PaletteAsyncListener() {
-                                @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-                                @Override
-                                public void onGenerated(Palette palette) {
-                                    setColors(context, palette);
-                                    if (android.os.Build.VERSION.SDK_INT >= 21) {
-                                        //w.setNavigationBarColor(palette.getLightVibrantColor(Color.DKGRAY));
-                                    }
+                    public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> animation) {
+                        super.onResourceReady(resource, animation);
+                        mProgress.setVisibility(View.GONE);
+                        Palette.from(StaticUtils.drawableToBitmap(resource)).generate(new Palette.PaletteAsyncListener() {
+                            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+                            @Override
+                            public void onGenerated(Palette palette) {
+                                setColors(context, palette);
+                                if (android.os.Build.VERSION.SDK_INT >= 21) {
+                                    //w.setNavigationBarColor(palette.getLightVibrantColor(Color.DKGRAY));
                                 }
-                            });
-                        }
+                            }
+                        });
                     }
                 });
 
@@ -184,9 +160,6 @@ public class ApplyWallpaper extends AppCompatActivity {
         wallbg.setBackgroundColor(palette.getLightVibrantColor(Color.DKGRAY));
 
     }
-
-
-
 
     private void saveWallpaper(final Activity context, final String wallName,
                                final MaterialDialog downloadDialog, final Bitmap result) {
@@ -218,36 +191,35 @@ public class ApplyWallpaper extends AppCompatActivity {
                     @Override
                     public void run() {
                         downloadDialog.dismiss();
-                       // Snackbar.make(findViewById(R.id.wallbg), finalSnackbarText, Snackbar.LENGTH_SHORT).show();
+                        // Snackbar.make(findViewById(R.id.wallbg), finalSnackbarText, Snackbar.LENGTH_SHORT).show();
                         Toast.makeText(getApplicationContext(), finalSnackbarText, Toast.LENGTH_LONG).show();
 
                         //Refresh the gallery so the image appears!
-                        MediaScannerConnection.scanFile(getApplicationContext(), new String[] { destFile.getPath() }, new String[] { "image/jpeg" }, null);
+                        MediaScannerConnection.scanFile(getApplicationContext(), new String[]{destFile.getPath()}, new String[]{"image/jpeg"}, null);
                     }
                 });
 
             }
         }).start();
     }
-    private void saveWallpaperAction(final String name, String url) {
+
+    private void saveWallpaperAction() {
         final MaterialDialog downloadDialog = ISDialogs.showDownloadDialog(this);
         downloadDialog.show();
-        Log.i("savewall", "saveWallpaperAction: " + url);
+        Log.i("savewall", "saveWallpaperAction: " + wallpaperItem.getUrl());
         Glide.with(this)
+                .load(wallpaperItem.getUrl())
                 .asBitmap()
-                .load(url)
-                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL))
                 .into(new SimpleTarget<Bitmap>() {
                     @Override
-                    public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
+                    public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
                         if (resource != null) {
-                            saveWallpaper(context, name, downloadDialog, resource);
+                            saveWallpaper(context, wallpaperItem.getName(), downloadDialog, resource);
                         }
                     }
                 });
 
     }
-
 
 
     //Apply Section -------------------------------------------------------
@@ -272,6 +244,7 @@ public class ApplyWallpaper extends AppCompatActivity {
             }
         }
     }
+
     private void applyWallpaper(final Activity context, final String wallName,
                                 final MaterialDialog downloadDialog, final Bitmap result) {
         downloadDialog.setContent(context.getString(R.string.walls_downloading));
@@ -303,10 +276,10 @@ public class ApplyWallpaper extends AppCompatActivity {
                     public void run() {
                         downloadDialog.dismiss();
                         // Snackbar.make(findViewById(R.id.wallbg), finalSnackbarText, Snackbar.LENGTH_SHORT).show();
-                      //  Toast.makeText(getApplicationContext(), finalSnackbarText, Toast.LENGTH_LONG).show();
+                        //  Toast.makeText(getApplicationContext(), finalSnackbarText, Toast.LENGTH_LONG).show();
 
                         //Refresh the gallery so the image appears!
-                        MediaScannerConnection.scanFile(getApplicationContext(), new String[] { destFile.getPath() }, new String[] { "image/jpeg" }, null);
+                        MediaScannerConnection.scanFile(getApplicationContext(), new String[]{destFile.getPath()}, new String[]{"image/jpeg"}, null);
                         Intent setWall = new Intent(Intent.ACTION_ATTACH_DATA);
                         setWall.setDataAndType(getImageContentUri(getApplicationContext(), destFile), "image/*");
                         setWall.putExtra("png", "image/*");
@@ -319,25 +292,23 @@ public class ApplyWallpaper extends AppCompatActivity {
         }).start();
     }
 
-    private void applyWallpaperAction(final String name, String url) {
+    private void applyWallpaperAction() {
         final MaterialDialog downloadDialog = ISDialogs.showDownloadDialog(this);
         downloadDialog.show();
-        Log.i("savewall", "saveWallpaperAction: " + url);
+        Log.i("savewall", "saveWallpaperAction: " + wallpaperItem.getUrl());
         Glide.with(this)
+                .load(wallpaperItem.getUrl())
                 .asBitmap()
-                .load(url)
-                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL))
                 .into(new SimpleTarget<Bitmap>() {
                     @Override
-                    public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
+                    public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
                         if (resource != null) {
-                            applyWallpaper(context, name, downloadDialog, resource);
+                            applyWallpaper(context, wallpaperItem.getUrl(), downloadDialog, resource);
                         }
                     }
                 });
 
     }
-
 
 
     private void getPermissions() {
@@ -355,8 +326,6 @@ public class ApplyWallpaper extends AppCompatActivity {
     }
 
 
-
-
     private void showDialogs(String action) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                 ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) !=
@@ -371,21 +340,20 @@ public class ApplyWallpaper extends AppCompatActivity {
             if (Utils.hasNetwork(context)) {
                 switch (action) {
                     case "save":
-                        saveWallpaperAction(wallname, walls);
+                        saveWallpaperAction();
                         break;
                     case "apply":
-                        applyWallpaperAction(wallname, walls);
+                        applyWallpaperAction();
                         break;
 
                 }
             } else {
-                Toast.makeText(getApplicationContext(), "No Connection", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.no_conn_title, Toast.LENGTH_LONG).show();
                 //Snackbar.make(findViewById(R.id.wallbg), R.string.no_conn_title, Snackbar.LENGTH_SHORT).show();
             }
         }
 
     }
-
 
 
     //Favourites Attempt
@@ -394,15 +362,13 @@ public class ApplyWallpaper extends AppCompatActivity {
         sharedPreferences.saveBoolean(wall.toLowerCase().replaceAll(" ", "_").trim(), !sharedPreferences.getBoolean(wall.toLowerCase().replaceAll(" ", "_").trim(), false));
         if (sharedPreferences.getBoolean(wall.toLowerCase().replaceAll(" ", "_").trim(), false)) {
             //item.setIcon(getResources().getDrawable(R.drawable.ic_action_favorite));
-            Toast.makeText(getApplicationContext(), "Wall added to favourites", Toast.LENGTH_SHORT).show();
-        }
-        else {
-           // item.setIcon(getResources().getDrawable(R.drawable.ic_action_favorite_outline));
-            Toast.makeText(getApplicationContext(), "Wall removed from favourites", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.added_favorites, Toast.LENGTH_SHORT).show();
+        } else {
+            // item.setIcon(getResources().getDrawable(R.drawable.ic_action_favorite_outline));
+            Toast.makeText(getApplicationContext(), R.string.removed_favorites, Toast.LENGTH_SHORT).show();
         }
 
     }
-
 
 
 }

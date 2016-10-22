@@ -60,7 +60,7 @@ public class FavWallaper extends AppCompatActivity implements GetWallpapers.Call
                     for (int i = 0; i < jsonMainNode.length(); i++) {
                         JSONObject jsonChildNode = jsonMainNode.getJSONObject(i);
                         if (sharedPreferences.getBoolean(jsonChildNode.getString("name").toLowerCase().replaceAll(" ", "_").trim(), false)) {
-                            items.add(new WallpaperItem(jsonChildNode.optString("name"),
+                            items.add(new WallpaperItem(FavWallaper.this, jsonChildNode.optString("name"),
                                     jsonChildNode.optString("author"),
                                     jsonChildNode.optString("url"),
                                     jsonChildNode.optString("thumb")));

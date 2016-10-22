@@ -3,13 +3,12 @@ package com.viztushar.osumwalls.fragments;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
-import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
-import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -17,15 +16,11 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +35,6 @@ import com.viztushar.osumwalls.tasks.GetWallpapers;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -68,8 +62,7 @@ public class HomeFragment extends Fragment implements GetWallpapers.Callbacks {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mainView = inflater.inflate(R.layout.wall_fragment, container, false);
         context = mainView.getContext();
         mainProgress = (ProgressBar) mainView.findViewById(R.id.mainProgress);
@@ -91,7 +84,7 @@ public class HomeFragment extends Fragment implements GetWallpapers.Callbacks {
             ActivityManager.TaskDescription taskDescription = new
                     ActivityManager.TaskDescription(getResources().getString(R.string.app_name),
                     BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher_aw),
-                    getResources().getColor(R.color.colorPrimary));
+                    ContextCompat.getColor(getContext(), R.color.colorPrimary));
             getActivity().setTaskDescription(taskDescription);
         }
 
@@ -111,52 +104,29 @@ public class HomeFragment extends Fragment implements GetWallpapers.Callbacks {
         ((MainActivity) getActivity()).setSupportActionBar(toolbar);
     }
 
-    private void setActionBarTitle(String title)
-    {
-        if(title != null){
-            getActionBar().setTitle(title);
-        }
-        else
-        {
-            getActionBar().setTitle("Absolutely Wallpapers");
-        }
+    private void setActionBarTitle(String title) {
+        if (title != null) getActionBar().setTitle(title);
+        else getActionBar().setTitle(R.string.app_name);
     }
 
-    private void getActionBarTitle(String wall)
-    {
-        if(wall != null)
-        {
-            if(wall == "walls")
-            {
-                setActionBarTitle("Anything");
-            }
-            else if (wall == "new")
-            {
-                setActionBarTitle("New");
-            }
-            else if (wall == "material")
-            {
-                setActionBarTitle("Material");
-            }
-            else if (wall == "landscape")
-            {
-                setActionBarTitle("Landscapes");
-            }
-            else if (wall == "nature")
-            {
-                setActionBarTitle("Nature");
-            }
-            else if (wall == "sea")
-            {
-                setActionBarTitle("Sea");
-            }
-            else if (wall == "city")
-            {
-                setActionBarTitle("City");
-            }
-            else if (wall == "vintage")
-            {
-                setActionBarTitle("Vintage");
+    private void getActionBarTitle(String wall) {
+        if (wall != null) {
+            if (wall.equals("walls")) {
+                setActionBarTitle(getString(R.string.nav_all));
+            } else if (wall.equals("new")) {
+                setActionBarTitle(getString(R.string.nav_new));
+            } else if (wall.equals("material")) {
+                setActionBarTitle(getString(R.string.nav_material));
+            } else if (wall.equals("landscape")) {
+                setActionBarTitle(getString(R.string.nav_landscapes));
+            } else if (wall.equals("nature")) {
+                setActionBarTitle(getString(R.string.nav_landscapes));
+            } else if (wall.equals("sea")) {
+                setActionBarTitle(getString(R.string.nav_sea));
+            } else if (wall.equals("city")) {
+                setActionBarTitle(getString(R.string.nav_cities));
+            } else if (wall.equals("vintage")) {
+                setActionBarTitle(getString(R.string.nav_vintage));
             }
         }
     }
@@ -190,7 +160,7 @@ public class HomeFragment extends Fragment implements GetWallpapers.Callbacks {
                     JSONArray jsonMainNode = jsonResponse.optJSONArray(wall);
                     for (int i = 0; i < jsonMainNode.length(); i++) {
                         JSONObject jsonChildNode = jsonMainNode.getJSONObject(i);
-                        items.add(new WallpaperItem(jsonChildNode.optString("name"),
+                        items.add(new WallpaperItem(getContext(), jsonChildNode.optString("name"),
                                 jsonChildNode.optString("author"),
                                 jsonChildNode.optString("url"),
                                 jsonChildNode.optString("thumb")));
@@ -210,26 +180,21 @@ public class HomeFragment extends Fragment implements GetWallpapers.Callbacks {
         float density  = getResources().getDisplayMetrics().density;
         float dpWidth  = outMetrics.widthPixels / density;
         int columns = Math.round(dpWidth/200);*/
-        if(!Utils.noConnection)
-        {
-            if(newWalls && !Utils.newWallsShown)
-            {
-                Toast.makeText(getActivity(), "New walls available!", Toast.LENGTH_LONG).show();
+        if (!Utils.noConnection) {
+            if (newWalls && !Utils.newWallsShown) {
+                Toast.makeText(getActivity(), R.string.new_walls, Toast.LENGTH_LONG).show();
                 Utils.newWallsShown = true;
             }
-        }
-        else
-        {
-            Toast.makeText(getContext(), "No Connection", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getContext(), R.string.no_conn_title, Toast.LENGTH_LONG).show();
             //ImageView noConnectionImg = (ImageView) mainView.findViewById(R.id.noConnectionImage);
             TextView noConnectionTxt = (TextView) mainView.findViewById(R.id.noConnectionText);
-            if(Utils.darkTheme)
-            {
-               // noConnectionImg.setBackgroundColor(getResources().getColor(R.color.white));
-               // noConnectionImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_noconnection_white));
+            if (Utils.darkTheme) {
+                // noConnectionImg.setBackgroundColor(getResources().getColor(R.color.white));
+                // noConnectionImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_noconnection_white));
                 noConnectionTxt.setTextColor(getResources().getColor(R.color.white));
             }
-           // noConnectionImg.setVisibility(View.VISIBLE);
+            // noConnectionImg.setVisibility(View.VISIBLE);
             noConnectionTxt.setVisibility(View.VISIBLE);
 
         }
