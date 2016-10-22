@@ -4,7 +4,7 @@
     <string name="wall_url">http://pastebin.com/raw/kEFXe6AE</string>
     <string name="wallpaper_downloaded">Wallpaper was downloaded to: %1$s</string>
     <string name="error">Error</string>
-    <string name="no_conn_title">No connection found</string>
+    <string name="no_conn_title">No Connection</string>
 
     <string name="md_error_label">@string/error</string>
     <string name="md_storage_perm_error">You have not granted the \"Read External Storage\" permission to %1$s, which is needed to complete this action.</string>
@@ -38,6 +38,10 @@
     <string name="nav_setting">Setting</string>
     <string name="title_activity_settings">Settings</string>
 
+    <string name="new_walls">New Walls Available!</string>
+    <string name="added_favorites">Wall added to favorites</string>
+    <string name="removed_favorites">Wall removed from favorites</string>
+
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
@@ -52,11 +56,13 @@
     <string name="pref_default_display_name">John Smith</string>
 
     <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+
     <string-array name="pref_example_list_titles">
         <item>Always</item>
         <item>When possible</item>
         <item>Never</item>
     </string-array>
+
     <string-array name="pref_example_list_values">
         <item>1</item>
         <item>0</item>
@@ -84,7 +90,6 @@
         <item>-1</item>
     </string-array>
 
-    <string name="notif_settings_category_title">Notifications</string>
     <string name="notif_settings_alert">Notifications</string>
     <string name="notif_settings_vibrate">Vibrate</string>
     <string name="notif_settings_sound">Sound</string>

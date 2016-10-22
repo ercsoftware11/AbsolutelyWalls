@@ -1,19 +1,12 @@
 package com.viztushar.osumwalls.adapter;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.Build;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -22,11 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.viztushar.osumwalls.R;
 import com.viztushar.osumwalls.activities.ApplyWallpaper;
@@ -45,7 +34,6 @@ public class WallAdapter extends RecyclerView.Adapter<WallAdapter.MyViewHolder> 
 
     private List<WallpaperItem> images;
     private Context mContext;
-    public Bundle bundle;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView thumbnail;
@@ -80,49 +68,45 @@ public class WallAdapter extends RecyclerView.Adapter<WallAdapter.MyViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
         WallpaperItem image = images.get(position);
         holder.name.setText(images.get(position).getName());
         holder.author.setText(images.get(position).getAuthor());
         if(Utils.darkTheme) holder.realBackground.setBackgroundColor(mContext.getResources().getColor(android.R.color.darker_gray));
         Glide.with(mContext)
+                .load(image.getThumb())
                 .asBitmap()
-                .listener(new RequestListener<Bitmap>() {
+                .listener(new RequestListener<String, Bitmap>() {
                     @Override
-                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Bitmap> target, boolean isFirstResource) {
+                    public boolean onException(Exception e, String model, Target<Bitmap> target, boolean isFirstResource) {
                         return false;
                     }
 
                     @Override
-                    public boolean onResourceReady(Bitmap resource, Object model, Target<Bitmap> target, DataSource dataSource, boolean isFirstResource) {
+                    public boolean onResourceReady(Bitmap resource, String model, Target<Bitmap> target, boolean isFromMemoryCache, boolean isFirstResource) {
                         holder.pb.setVisibility(View.GONE);
                         holder.realBackground.setBackgroundColor(mContext.getResources().getColor(android.R.color.darker_gray));
                         new ColorGridTask(mContext, resource, holder).execute();
                         return false;
                     }
                 })
-                .load(image.getThumb())
-                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL).centerCrop(mContext))
-                .thumbnail(0.5f)
+                .thumbnail(0.2f)
                 .into(holder.thumbnail);
 
         holder.mainView.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("NewApi")
             @Override
             public void onClick(View view) {
-
-                String wallurl= String.valueOf(images.get(position).getUrl());
-                String wallname= String.valueOf(images.get(position).getName());
-                Intent intent = new Intent(mContext,ApplyWallpaper.class)
-                        .putExtra("walls",wallurl)
-                        .putExtra("wallname",wallname);
-
                /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     bundle = ActivityOptions
                             .makeSceneTransitionAnimation((Activity) mContext,holder.thumbnail,"wall")
                             .toBundle();
                 }*/
-                mContext.startActivity(intent,bundle);
+
+                mContext.startActivity(
+                        new Intent(mContext, ApplyWallpaper.class).putExtra(ApplyWallpaper.EXTRA_WALLPAPER, images.get(holder.getAdapterPosition())),
+                        ActivityOptionsCompat.makeScaleUpAnimation(view, (int) view.getX(), (int) view.getY(), view.getWidth(), view.getHeight()).toBundle()
+                );
 
             }
         });
@@ -133,6 +117,7 @@ public class WallAdapter extends RecyclerView.Adapter<WallAdapter.MyViewHolder> 
         return images.size();
     }
 
+    /*
     public interface ClickListener {
         void onClick(View view, int position);
 
@@ -181,4 +166,5 @@ public class WallAdapter extends RecyclerView.Adapter<WallAdapter.MyViewHolder> 
 
         }
     }
+    */
 }
